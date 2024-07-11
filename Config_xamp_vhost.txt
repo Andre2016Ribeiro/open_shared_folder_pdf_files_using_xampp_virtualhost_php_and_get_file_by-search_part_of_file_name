@@ -1,0 +1,25 @@
+<VirtualHost 127.0.0.1:88>
+DocumentRoot "C:/xampp/htdocs"
+
+    # Disable ProxyPass for /images/ path
+    ProxyPass /pdfs/ !
+
+ Alias "/pdfs/" "//10.0.0.241/orthos/"
+
+
+   # Directory directive for the local DocumentRoot
+    <Directory "C:/xampp/htdocs">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+  # Directory directive for the remote PDFs directory
+    <Directory "//10.0.0.241/orthos/">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+#Leocadia configs:
+#10.0.0.243:80
